@@ -1,0 +1,233 @@
+body {
+    background: rgb(80, 80, 80);
+}
+
+#toolBar {
+    height: 100px;
+
+}
+
+.fileinput-button {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.fileinput-button input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    font-size: 200px !important;
+    direction: ltr;
+    cursor: pointer;
+}
+
+.fileinput-button input {
+    filter: alpha(opacity=0);
+    font-size: 100%;
+    height: 100%;
+}
+
+#content {
+    height: 85vh;
+    /* background: yellow; */
+    width: 100%;
+    float: left;
+}
+
+#study-content {
+    background: rgb(88, 88, 88);
+    height: 85vh;
+    width: 18%;
+    float: left;
+    margin-right: 2px;
+}
+
+#series-content {
+    background: rgb(88, 88, 88);
+    height: 85vh;
+    width: 10%;
+    float: left;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#image-content {
+    float: left;
+    width: 71%;
+    /* background: #f0f; */
+    height: 85vh;
+}
+
+.active {
+    background: none;
+    border: none;
+}
+
+#tblPatient {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#tblPatient tr th {
+    background: #f0f;
+}
+
+#tblPatient tr th,
+td {
+    text-align: center;
+    width: 330px;
+    padding-left: 10px;
+    height: 40px;
+    border: 1px solid #666;
+    background: #fff;
+}
+
+#tblStudy div {
+    width: 120px;
+}
+
+.studyImage {
+    width: 100px;
+    height: 100px;
+    /* background: blue; */
+    float: left;
+    margin-left: 8px;
+    margin-top: 7px;
+}
+
+.seriesImage {
+    width: 130px;
+    height: 120px;
+    /* background: blue; */
+    margin-top: 10px;
+    margin-left: 7px;
+    display: block;
+}
+
+::-webkit-scrollbar-track
+{
+	background-color: rgb(88, 88, 88);
+}
+
+::-webkit-scrollbar
+{
+	width: 8px;
+	background-color: rgb(88, 88, 88)
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color:	red;
+}
+
+
+#image-content div {
+    float: left;
+}
+
+#image1,
+#image2,
+#image3,
+#image4 {
+    width: 525px;
+    height: 316px;
+    margin-top: 2px;
+    margin-left: 2px;
+    padding: 1px;
+    background: rgb(88, 88, 88);
+}
+
+.imageActive {
+    border: 2px solid #ffa31a;
+    position: relative;
+}
+
+.imageActive canvas {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0.5px;
+    bottom: 0.5px;
+    margin-bottom: 5px;
+}
+
+.active1 {
+    background: #fff;
+}
+.toolList{
+    padding-top: 10px;
+}
+#iconGeneral button{
+    border: 1px solid rgb(211,211,211);
+    margin-left: 10px;
+    background: rgb(32,32,32);
+}
+
+.toolList p{
+    background:#696969	;
+    color: #fff;
+    padding-left: 10px;
+}
+.btnActive{
+    background: #ff4000;
+}
+.row1{
+    margin-top: -5px;
+}
+.row2{
+    margin-top: 5px;
+}
+.row3{
+    margin-top: 5px;
+}
+#Annotation{
+    margin-top: 5px;
+}
+#Annotation button{
+    border: 1px solid rgb(211,211,211);
+    background: rgb(32,32,32);
+    margin-left: 10px;
+}
+#editTool button{
+    border: 1px solid rgb(211,211,211);
+    background: rgb(32,32,32);
+    margin-left: 10px;
+}
+#div1{
+    color: #fff;
+    z-index: 1000;
+    position: absolute;
+}
+#img1x1{
+    width: 100%;
+    height: 100%;
+    background: rgb(88,88,88);
+}
+#img1x2-1,#img1x2-2{
+    float: left;
+    width: calc(50% - 3px);
+    height: calc(100% - 3px);
+    margin-top: 2px;
+  margin-left: 2px;
+    background: rgb(88,88,88);
+
+}
+#img2x2-1,#img2x2-2,#img2x2-3,#img2x2-4{
+    float: left;
+    width: calc(50% - 3px);
+    height: calc(50% - 3px);
+    margin-top: 2px;
+    margin-left: 2px;
+    background: rgb(88,88,88);
+}
+#img3x3-1,#img3x3-2,#img3x3-3,#img3x3-4,#img3x3-5,#img3x3-6,#img3x3-7,#img3x3-8,#img3x3-9{
+    float: left;
+    width: calc(33.333333333333% - 2px);
+    height: calc(33.33333333333% - 2px);
+    margin-top: 2px;
+    margin-left: 2px;
+    background: rgb(88,88,88);
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test 2109</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="Example_2708.css">
+    <script src="lib/cornerstone.js"></script>
+    <script src="lib/exampleImageIdLoader.js"></script>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/cornerstoneWADOImageLoader.js"></script>
+    <script src="lib/initializeWebWorkers.js"></script>
+    <script src="lib/dicomParser.min.js"></script>
+    <!-- Why we're all here ;) -->
+    <script src="https://unpkg.com/cornerstone-math"></script>
+    <script src="https://unpkg.com/cornerstone-tools@%5E3"></script>
+    <!-- include the hammer.js library for touch gestures-->
+    <script src="https://unpkg.com/hammerjs@2.0.8/hammer.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="test2109.css">
+</head>
+
+<body>
+
+    <span class=" fileinput-bustton">
+
+        <ul class="nav nav-pills">
+            <li>
+                <span class=" fileinput-button">
+                    <button class="glyphicon glyphicon-plus" style="background-color: black" id="btnOpen"><img
+                            src="lib/img_svg/open.png" width="28px"></button>
+                    <input type="file" name="files[]" id="selectFile" multiple />
+                </span>
+            </li>
+            <li class="active"><a data-toggle="pill" href="#patient">Patient</a></li>
+            <li id="StudyActive"><a data-toggle="pill" href="#study">Study</a></li>
+        </ul>
+    </span>
+
+    <div class="tab-content">
+        <div id="patient" class="tab-pane fade in active">
+            <table id="tblPatient">
+
+            </table>
+        </div>
+        <div id="study" class="tab-pane fade">
+            <div id="study-content">
+                <div id="tblStudy">
+                </div>
+                <div class="toolList" style="clear: both">
+                    <div>
+                        <p>General Tool</p>
+                    </div>
+                    <div id="iconGeneral" style="clear: both;">
+                        <div class="row1">
+                            <button title="DragProbeTool" id="DragProbeTool"><img src="lib/img_svg/DragProbe.png"
+                                    width="28px"></button>
+                            <button title="MagnifyTool" id="MagnifyTool"><img src="lib/img_svg/magnify.png"
+                                    width="28px"></button>
+                            <button title="PanTool" id="PanTool"><img src="lib/img_svg/pan.png" width="28px"></button>
+                            <button title="RotateTool" id="RotateTool"><img src="lib/img_svg/Rotate .png" width="28px">
+                            </button>
+                        </div>
+                        <div class="row2">
+                            <button title="ScaleOverlayTool" id="ScaleOverlayTool"><img src="lib/img_svg/Scale.png"
+                                    width="28px"></button>
+                            <button title="WWWCTool" id="WwwcTool"><img src="lib/img_svg/WWC.png" width="28px"></button>
+                            <button title="ZoomMouseWheelTool" id="ZoomMouseWheelTool"><img
+                                    src="lib/img_svg/zoomScroll.png" width="28px"></button>
+                        </div>
+
+                    </div>
+                    <div style="margin-top: 5px;">
+                        <p>Edit</p>
+                    </div>
+                    <div id="editTool" style="margin-left: 15px;">
+                        <div class="row1">
+                            <button title="ResetTool" id="ResetTool"><img src="lib/img_svg/reset1.png"
+                                    width="28px"></button>
+                            <button title="EraserTool" id="EraserTool"><img src="lib/img_svg/eraser.png"
+                                    width="28px"></button>
+                            </button>
+                            <button title="Disconnect" id="disabled"><img src="lib/img_svg/icons8-xbox-x-50.png"
+                                    width="28px"></button>
+                            </button>
+                            <select name="" id="select" style="margin-left: 30px; margin-top: 20px;">
+                                    <option value="1x1">1x1</option>
+                                    <option value="1x2">1x2</option>
+                                    <option value="2x2">2x2</option>
+                                    <option value="3x3">3x3</option>
+                                </select>
+                        </div>
+                    </div>
+                    <div style="margin-top: 5px;">
+                        <p>Annotation</p>
+                    </div>
+                    <div id="Annotation" style="margin-left: 15px;">
+                        <div class="row1">
+                            <button id="AngleTool" title="AngleTool"><img src="lib/img_svg/angle.png"
+                                    width="28px"></button>
+                            <button id="ArrowAnnotateTool" title="ArrowAnnotateTool"><img
+                                    src="lib/img_svg/ArrowAnnotate.png" width="28px"></button>
+                            <button id="BidirectionalTool" title="BidirectionalTool"><img
+                                    src="lib/img_svg/Bidirectional.png" width="28px"></button>
+                            <button id="CobbAngleTool" title="CobbAngleTool"><img src="lib/img_svg/lenghLine.svg"
+                                    width="28px"></button>
+                        </div>
+                        <div class="row2">
+                            <button id="EllipticalRoiTool" title="EllipticalRoiTool"><img src="lib/img_svg/elip.png"
+                                    width="28px"></button>
+                            <button id="FreehandMouseTool" title="FreehandMouseTool"><img
+                                    src="lib/img_svg/Freehandnew.png" width="28px"></button>
+                            <button id="ProbeTool" title="ProbeTool"><img src="lib/img_svg/probe.png"
+                                    width="28px"></button>
+                            <button id="RectangleRoiTool" title="RectangleRoiTool"><img
+                                    src="lib/img_svg/RectangleRoi.png" width="28px"></button>
+                        </div>
+                        <div class="row3">
+                            <button id="TextMarkerTool" title="TextMarkerTool"><img src="lib/img_svg/text.png"
+                                    width="28px"></button>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            <div id="series-content">
+                <div id="tblSeries" class="text-center">
+                </div>
+            </div>
+            <div id="image-content">
+                <div id="img1x1" class="imageActive">
+                    <div id="div1">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+</body>
+<script src="2109.js"></script>
+
+</html>
